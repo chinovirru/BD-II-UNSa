@@ -1,5 +1,5 @@
 # Utiliza la imagen base de PostgreSQL con Alpine
-FROM postgres:18-alpine
+FROM postgres:16-alpine
 
 # Instala Python 3
 RUN apk update && \
