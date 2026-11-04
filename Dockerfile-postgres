@@ -1,11 +1,10 @@
-# Utiliza la imagen base de PostgreSQL con Alpine
-FROM postgres:alpine
+FROM postgres:18-alpine
 
 # Instala Python 3
 RUN apk update && \
     apk add --no-cache python3
 
-COPY dellstore_dump /tmp/
-COPY northwind_dump /tmp/
+COPY dumps/ /dumps/
+
 COPY inicio.sh /docker-entrypoint-initdb.d/
 

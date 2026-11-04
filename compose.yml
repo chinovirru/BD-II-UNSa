@@ -9,11 +9,11 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data/
+      - ./postgres_data:/var/lib/postgresql/
     ports:
       - "5432:5432"
     networks:
-      - bridge_network
+      - bd_net
 
   # Para iniciar la replicación:
   # 1. Levantar sin el slave
@@ -28,13 +28,13 @@ services:
   #   environment:
   #     POSTGRES_PASSWORD: postgres
   #   volumes:
-  #     - ./slave_data:/var/lib/postgresql/data/
+  #     - ./slave_data:/var/lib/postgresql/
   #   ports:
   #     - "5433:5432"
   #   depends_on:
   #     - postgres
   #   networks:
-  #     - bridge_network
+  #     - bd_net
 
   apache:
     build:
@@ -43,12 +43,12 @@ services:
     volumes:
       - ./:/var/www/html/
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - postgres
     networks:
-      - bridge_network
+      - bd_net
 
 networks:
-  bridge_network:
+  bd_net:
     driver: bridge

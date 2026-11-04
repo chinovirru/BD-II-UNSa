@@ -34,7 +34,7 @@ SET search_path = public, pg_catalog;
 
 SET default_tablespace = '';
 
-SET default_with_oids = true;
+SET default_with_oids = false;
 
 --
 -- TOC entry 172 (class 1259 OID 34284)
@@ -66,7 +66,7 @@ CREATE TABLE countries (
 
 ALTER TABLE countries OWNER TO postgres;
 
-SET default_with_oids = true;
+SET default_with_oids = false;
 
 --
 -- TOC entry 174 (class 1259 OID 34296)
